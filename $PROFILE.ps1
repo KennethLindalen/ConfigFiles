@@ -1,6 +1,6 @@
 # Build project to only show errors
-function db {
-    dotnet build --verbosity quiet
+function dbe {
+    dotnet build --consoleLoggerParameters:ErrorsOnly
 }
 
 # Build project to only show warnings
@@ -26,7 +26,7 @@ function dbu {
 function dbhelp {
     Write-Host "Available Commands:"
     Write-Host "-------------------"
-    Write-Host "db   : Builds the project showing only errors (dotnet build --verbosity quiet)"
+    Write-Host "dbe  : Builds the project showing only errors (dotnet build --consoleLoggerParameters:ErrorsOnly)"
     Write-Host "dbw  : Builds the project showing only warnings (dotnet build --verbosity minimal 2>&1 | Select-String -Pattern 'warning')"
     Write-Host "dbm  : Creates a new database migration. Usage: dbm <migrationName> (dotnet ef migrations add <migrationName>)"
     Write-Host "dbu  : Updates the database (dotnet ef database update)"
